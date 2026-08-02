@@ -1,0 +1,14 @@
+# syntax=docker/dockerfile:1
+
+FROM eclipse-temurin:21-jdk-alpine
+
+WORKDIR /app
+
+COPY gradlew ./
+COPY gradle ./gradle
+COPY build.gradle ./
+COPY settings.gradle ./
+
+RUN chmod +x gradlew
+
+CMD ["./gradlew", "bootRun", "--no-daemon"]
