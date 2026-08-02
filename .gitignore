@@ -84,12 +84,5 @@ application-secret.yml
 *.tmp
 *.swp
 
-gradlew
-gradlew.bat
-gradle/wrapper/gradle-wrapper.jar
-gradle/wrapper/gradle-wrapper.properties
-build.gradle
-settings.gradle
-
 *.pem
 *.key
