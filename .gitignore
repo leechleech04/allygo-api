@@ -1,7 +1,6 @@
 HELP.md
 .gradle
 build/
-!gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
 
@@ -56,6 +55,9 @@ out/
 *.jar
 *.war
 *.ear
+
+# Gradle Wrapper는 Git에 포함
+!gradle/wrapper/gradle-wrapper.jar
 
 ### OS ###
 .DS_Store
