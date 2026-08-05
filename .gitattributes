@@ -1,3 +1,18 @@
 /gradlew text eol=lf
 *.bat text eol=crlf
 *.jar binary
+
+# Normalize line endings
+* text=auto eol=lf
+
+# Images
+*.png binary
+*.jpg binary
+*.jpeg binary
+
+# Java archives
+*.jar binary
+*.war binary
+
+# Archives
+*.zip binary

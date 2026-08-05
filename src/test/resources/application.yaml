@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:allygo;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  flyway:
+    enabled: false
+
+auth:
+  token:
+    issuer: allygo-api-test
+    secret-base64: MDEyMzQ1Njc4OWFiY2RlZjAxMjM0NTY3ODlhYmNkZWY=
+    access-token-ttl: 1h
+    refresh-token-ttl: 14d
+    verification-token-ttl: 10m
+  password:
+    bcrypt-strength: 4
+  verification:
+    code-ttl: 3m
+    resend-cooldown: 1m
+    max-attempts: 5
+    max-daily-sends: 5
+    code-pepper-base64: MDEyMzQ1Njc4OWFiY2RlZjAxMjM0NTY3ODlhYmNkZWY=
+  rate-limit:
+    login:
+      window: 15m
+      max-attempts: 5
+      block-duration: 15m
+    token-refresh:
+      window: 1m
+      max-attempts: 20
+      block-duration: 5m

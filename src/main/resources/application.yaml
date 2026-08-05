@@ -1,3 +1,52 @@
 spring:
   application:
     name: allygo-api
+
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      timeout: 2s
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  sql:
+    init:
+      mode: never
+
+auth:
+  token:
+    issuer: ${JWT_ISSUER:allygo-api}
+    secret-base64: ${JWT_SECRET_BASE64}
+    access-token-ttl: 1h
+    refresh-token-ttl: 14d
+    verification-token-ttl: 10m
+  password:
+    bcrypt-strength: ${PASSWORD_BCRYPT_STRENGTH:12}
+  verification:
+    code-ttl: 3m
+    resend-cooldown: 1m
+    max-attempts: 5
+    max-daily-sends: 5
+    code-pepper-base64: ${VERIFICATION_CODE_PEPPER_BASE64}
+  rate-limit:
+    login:
+      window: 15m
+      max-attempts: 5
+      block-duration: 15m
+    token-refresh:
+      window: 1m
+      max-attempts: 20
+      block-duration: 5m
