@@ -23,6 +23,7 @@ auth:
     resend-cooldown: 1m
     max-attempts: 5
     max-daily-sends: 5
+    daily-limit-zone: Asia/Seoul
     code-pepper-base64: MDEyMzQ1Njc4OWFiY2RlZjAxMjM0NTY3ODlhYmNkZWY=
   rate-limit:
     login:
@@ -33,3 +34,12 @@ auth:
       window: 1m
       max-attempts: 20
       block-duration: 5m
+
+sms:
+  provider: solapi
+  base-url: http://localhost:18080
+  api-key: test-api-key
+  api-secret: test-api-secret
+  sender-number: "+821012345678"
+  connect-timeout: 100ms
+  read-timeout: 100ms

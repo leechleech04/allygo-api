@@ -40,6 +40,7 @@ auth:
     resend-cooldown: 1m
     max-attempts: 5
     max-daily-sends: 5
+    daily-limit-zone: ${AUTH_VERIFICATION_DAILY_LIMIT_ZONE:Asia/Seoul}
     code-pepper-base64: ${VERIFICATION_CODE_PEPPER_BASE64}
   rate-limit:
     login:
@@ -50,3 +51,12 @@ auth:
       window: 1m
       max-attempts: 20
       block-duration: 5m
+
+sms:
+  provider: ${SMS_PROVIDER:solapi}
+  base-url: ${SOLAPI_BASE_URL:https://api.solapi.com}
+  api-key: ${SOLAPI_API_KEY}
+  api-secret: ${SOLAPI_API_SECRET}
+  sender-number: ${SOLAPI_SENDER_NUMBER}
+  connect-timeout: ${SMS_CONNECT_TIMEOUT:2s}
+  read-timeout: ${SMS_READ_TIMEOUT:3s}
