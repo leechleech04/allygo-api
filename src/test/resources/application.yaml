@@ -18,6 +18,9 @@ auth:
     verification-token-ttl: 10m
   password:
     bcrypt-strength: 4
+  profile-image:
+    base-url: https://storage.allygo.example/profile
+    signed-url-ttl: 5m
   verification:
     code-ttl: 3m
     resend-cooldown: 1m

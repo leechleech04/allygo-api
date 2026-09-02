@@ -2,6 +2,13 @@ spring:
   application:
     name: allygo-api
 
+  config:
+    import: optional:file:.env[.properties]
+
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+
   datasource:
     url: ${DB_URL}
     username: ${DB_USERNAME}
@@ -15,7 +22,11 @@ spring:
     redis:
       host: ${REDIS_HOST:localhost}
       port: ${REDIS_PORT:6379}
+      username: ${REDIS_USERNAME:}
       password: ${REDIS_PASSWORD:}
+      ssl:
+        enabled: ${REDIS_SSL_ENABLED:false}
+      connect-timeout: 2s
       timeout: 2s
 
   flyway:
@@ -35,6 +46,9 @@ auth:
     verification-token-ttl: 10m
   password:
     bcrypt-strength: ${PASSWORD_BCRYPT_STRENGTH:12}
+  profile-image:
+    base-url: ${PROFILE_IMAGE_SIGNED_URL_BASE:https://storage.allygo.example/profile}
+    signed-url-ttl: 5m
   verification:
     code-ttl: 3m
     resend-cooldown: 1m
